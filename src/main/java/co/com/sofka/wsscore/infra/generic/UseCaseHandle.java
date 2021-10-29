@@ -19,6 +19,7 @@ public abstract class UseCaseHandle {
     private   MessageService messageService;;
 
     public void saveProgram(String programId, List<DomainEvent> events) {
+        System.out.println(" UseCaseHandle, generar evento y guardar en el repositorio");
         events.stream().map(event -> {
             String eventBody = EventSerializer.instance().serialize(event);
             return new StoredEvent(event.getClass().getTypeName(), new Date(), eventBody);

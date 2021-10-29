@@ -68,7 +68,8 @@ public class MessageService {
         return new DefaultConsumer(channel) {
                 @Override
                 public void handleDelivery(String consumerTag, Envelope envelope, AMQP.BasicProperties properties, byte[] body) throws IOException {
-                   var message = new String(body, StandardCharsets.UTF_8);
+                    System.out.println(" En el Message Service, setupReceivingForCommand");
+                    var message = new String(body, StandardCharsets.UTF_8);
 
                     try {
                         var command = CommandSerializer.instance()
@@ -83,7 +84,7 @@ public class MessageService {
     }
 
     public void send(Command command) {
-        System.out.println("Send command...");
+        System.out.println(" En el Message Service, Send command...");
         try {
             var message = CommandSerializer.instance().serialize(command);
             var props = new AMQP.BasicProperties.Builder().contentType(command.getClass().getTypeName()).build();
@@ -94,7 +95,7 @@ public class MessageService {
     }
 
     public void send(DomainEvent event) {
-        System.out.println("Send event...");
+        System.out.println(" En el MessageService, Send event...");
         try {
             var message = EventSerializer.instance().serialize(event);
             var props = new AMQP.BasicProperties.Builder().contentType(event.getClass().getTypeName()).build();

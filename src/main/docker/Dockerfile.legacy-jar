@@ -8,10 +8,13 @@
 # Then, build the image with:
 #
 # docker build -f src/main/docker/Dockerfile.legacy-jar -t quarkus/code-with-quarkus-legacy-jar .
+# docker build -f src/main/docker/Dockerfile.legacy-jar -t mafemonroyg/demo-cqrs .
+# docker push mafemonroyg/demo-cqrs //Para subir imagen
 #
 # Then run the container using:
 #
 # docker run -it --rm -p 8080:8080 quarkus/code-with-quarkus-legacy-jar
+#
 #
 # If you want to include the debug port into your docker image
 # you will have to expose the debug port (default 5005) like this :  EXPOSE 8080 5005

@@ -24,6 +24,7 @@ public class ProgramHandle {
 
     @ConsumeEvent(value = "sofkau.program.programcreated", blocking = true)
     void consumeProgramCreated(ProgramCreated event) {
+        System.out.println(" ProgramHaddle, modifica la base de datos para programa creado ");
         Map<String, Object> document = new HashMap<>();
         document.put("_id", event.getAggregateId());
         document.put("name", event.getName());
@@ -33,6 +34,7 @@ public class ProgramHandle {
 
     @ConsumeEvent(value = "sofkau.program.courseassigned", blocking = true)
     void consumeProgramCreated(CourseAssigned event) {
+        System.out.println(" ProgramHaddle, modifica la base de datos para curso asignado ");
         BasicDBObject document = new BasicDBObject();
         document.put("courses."+event.getCourseId(), event.getCategories());
 

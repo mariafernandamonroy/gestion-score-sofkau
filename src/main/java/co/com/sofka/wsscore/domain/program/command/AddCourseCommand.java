@@ -1,6 +1,8 @@
 package co.com.sofka.wsscore.domain.program.command;
 
 import co.com.sofka.wsscore.domain.generic.Command;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -10,8 +12,9 @@ public class AddCourseCommand  extends Command {
     private List<String> categories;
 
     public AddCourseCommand(){
-
     }
+
+
     public String getProgramId() {
         return programId;
     }

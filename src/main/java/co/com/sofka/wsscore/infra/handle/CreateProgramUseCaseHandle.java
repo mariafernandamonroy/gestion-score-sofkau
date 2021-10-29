@@ -18,6 +18,7 @@ public class CreateProgramUseCaseHandle extends UseCaseHandle {
 
     @ConsumeEvent(value = "sofkau.program.createprogram", blocking = true)
     void consumeBlocking(CreateProgramCommand command) {
+        System.out.println(" CreateProgramUseCase ");
         var events = createProgramUseCase.apply(command);
         saveProgram(command.getProgramId(), events);
     }
